@@ -12,6 +12,7 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class CartComponent {
   products: IProduct[] = [];
+  orderSuccess: boolean = false;
 
   constructor(private cartService: CartService) {
     this.products = this.cartService.getItems();
@@ -24,5 +25,11 @@ export class CartComponent {
 
   getTotal(): number {
     return this.cartService.getTotal();
+  }
+
+  handleCheckout() {
+    this.cartService.clearCart();
+    this.products = [];
+    this.orderSuccess = true;
   }
 }

@@ -1,9 +1,18 @@
 <div class="cart-container">
   <h2>Shopping Cart</h2>
 
-  @if(products.length === 0){
+  @if(orderSuccess){
+    <div class="success-message">
+      <div class="success-icon">✅</div>
+      <h3 class="fw-bold">Order Placed Successfully!</h3>
+      <p class="text-muted">Thank you for your purchase. Your order is on its way!</p>
+      <a routerLink="/" class="btn btn-dark mt-3">Continue Shopping</a>
+    </div>
+  } @else if(products.length === 0){
     <div class="empty-cart">
+      <div style="font-size:4rem;">🛒</div>
       <p>Your cart is empty!</p>
+      <a routerLink="/" class="btn btn-dark mt-2">Shop Now</a>
     </div>
   } @else {
     <div class="cart-items">
@@ -20,7 +29,7 @@
     </div>
     <div class="cart-total">
       <h4>Total: {{getTotal() | currency:'USD'}}</h4>
-      <button class="btn btn-success">Checkout</button>
+      <button class="btn btn-success" (click)="handleCheckout()">Checkout</button>
     </div>
   }
 </div>

@@ -1,26 +1,60 @@
 <div class="login-container">
   <div class="login-card">
     <div class="login-header">
-      <h2 class="fw-bold">Welcome Back!</h2>
-      <p style="color: #bdc3c7;">Login to your account</p>
+      <h2 class="fw-bold">{{isLogin ? 'Welcome Back!' : 'Create Account'}}</h2>
+      <p style="color: #bdc3c7;">{{isLogin ? 'Login to your account' : 'Register a new account'}}</p>
     </div>
+
+    <div class="login-tabs">
+      <button [class.active]="isLogin" (click)="isLogin=true">Login</button>
+      <button [class.active]="!isLogin" (click)="isLogin=false">Register</button>
+    </div>
+
     <div class="login-body">
-      @if(errorMessage){
-        <div class="alert alert-danger">{{errorMessage}}</div>
+      @if(isLogin){
+        @if(errorMessage){
+          <div class="alert alert-danger">{{errorMessage}}</div>
+        }
+        <div class="mb-3">
+          <label class="form-label fw-bold">Email Address</label>
+          <input type="email" class="form-control" placeholder="Enter your email" [(ngModel)]="email">
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Password</label>
+          <input type="password" class="form-control" placeholder="Enter your password" [(ngModel)]="password">
+        </div>
+        <button class="btn btn-dark w-100 mb-3" (click)="handleLogin()">Login</button>
+        <p class="text-center text-muted">
+          Don't have an account? <span class="text-dark fw-bold" style="cursor:pointer" (click)="isLogin=false">Register</span>
+        </p>
+      } @else {
+        @if(regError){
+          <div class="alert alert-danger">{{regError}}</div>
+        }
+        @if(regSuccess){
+          <div class="alert alert-success">{{regSuccess}}</div>
+        }
+        <div class="mb-3">
+          <label class="form-label fw-bold">Full Name</label>
+          <input type="text" class="form-control" placeholder="Enter your name" [(ngModel)]="regName">
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Email Address</label>
+          <input type="email" class="form-control" placeholder="Enter your email" [(ngModel)]="regEmail">
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Password</label>
+          <input type="password" class="form-control" placeholder="Enter your password" [(ngModel)]="regPassword">
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Confirm Password</label>
+          <input type="password" class="form-control" placeholder="Confirm your password" [(ngModel)]="regConfirmPassword">
+        </div>
+        <button class="btn btn-dark w-100 mb-3" (click)="handleRegister()">Register</button>
+        <p class="text-center text-muted">
+          Already have an account? <span class="text-dark fw-bold" style="cursor:pointer" (click)="isLogin=true">Login</span>
+        </p>
       }
-      <div class="mb-3">
-        <label class="form-label fw-bold">Email Address</label>
-        <input type="email" class="form-control" placeholder="Enter your email" [(ngModel)]="email">
-      </div>
-      <div class="mb-3">
-        <label class="form-label fw-bold">Password</label>
-        <input type="password" class="form-control" placeholder="Enter your password" [(ngModel)]="password">
-      </div>
-      <button class="btn btn-dark w-100 mb-3" (click)="handleLogin()">Login</button>
-      <p class="text-center text-muted">
-      Email: admin&#64;admin.com<br>
-        Password: 123456
-      </p>
     </div>
   </div>
 </div>

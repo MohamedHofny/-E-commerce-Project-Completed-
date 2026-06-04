@@ -1,5 +1,13 @@
+<div class="search-bar container mt-4">
+  <input 
+    type="text" 
+    class="form-control form-control-lg" 
+    placeholder="🔍 Search for furniture..." 
+    [(ngModel)]="searchText">
+</div>
+
 <div class="products-card">
-  @for(product of productService.products();track product.id){
+    @for(product of getFilteredProducts();track product.id){
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" [src]="product.imgURL" alt="Card image cap">
         <div class="card-body">
@@ -18,6 +26,6 @@
         </div>
     </div>
 }@empty {
-    <p>No products</p>
+    <p class="text-center mt-4">No products found!</p>
 }
 </div>

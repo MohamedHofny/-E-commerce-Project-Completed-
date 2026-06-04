@@ -22,6 +22,27 @@
     padding: 40px 20px;
 }
 
+.login-tabs {
+    display: flex;
+    background-color: #f8f9fa;
+}
+
+.login-tabs button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: #f8f9fa;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.login-tabs button.active {
+    border-bottom: 3px solid #2c3e50;
+    color: #2c3e50;
+}
+
 .login-body {
     padding: 30px;
     background-color: white;

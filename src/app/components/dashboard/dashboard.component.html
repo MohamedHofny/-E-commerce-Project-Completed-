@@ -7,6 +7,13 @@
   <div class="row mb-4">
     <div class="col-md-3 mb-3">
       <div class="stat-card">
+        <div class="stat-icon">🛋️</div>
+        <h3 class="fw-bold">{{productService.products().length}}</h3>
+        <p class="text-muted">Total Products</p>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="stat-card">
         <div class="stat-icon">🛒</div>
         <h3 class="fw-bold">24</h3>
         <p class="text-muted">Total Orders</p>
@@ -16,74 +23,56 @@
       <div class="stat-card">
         <div class="stat-icon">💰</div>
         <h3 class="fw-bold">$12,450</h3>
-        <p class="text-muted">Total Spent</p>
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <div class="stat-card">
-        <div class="stat-icon">❤️</div>
-        <h3 class="fw-bold">8</h3>
-        <p class="text-muted">Wishlist Items</p>
+        <p class="text-muted">Total Revenue</p>
       </div>
     </div>
     <div class="col-md-3 mb-3">
       <div class="stat-card">
         <div class="stat-icon">⭐</div>
         <h3 class="fw-bold">12</h3>
-        <p class="text-muted">Reviews Given</p>
+        <p class="text-muted">Reviews</p>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-8 mb-4">
-      <div class="dashboard-card">
-        <h4 class="fw-bold mb-3">Recent Orders</h4>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Odense Dining Table</td>
-              <td>$2,150.00</td>
-              <td><span class="badge bg-success">Delivered</span></td>
-            </tr>
-            <tr>
-              <td>Trixia Glass Table</td>
-              <td>$3,124.00</td>
-              <td><span class="badge bg-warning">Pending</span></td>
-            </tr>
-            <tr>
-              <td>Boston Study Chair</td>
-              <td>$110.00</td>
-              <td><span class="badge bg-success">Delivered</span></td>
-            </tr>
-            <tr>
-              <td>Accent TV Unit</td>
-              <td>$136.99</td>
-              <td><span class="badge bg-danger">Cancelled</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <div class="dashboard-card">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="fw-bold">All Products</h4>
+      <a routerLink="/add-product" class="btn btn-dark btn-sm">+ Add Product</a>
     </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="dashboard-card">
-        <h4 class="fw-bold mb-3">Account Info</h4>
-        <ul class="list-unstyled">
-          <li class="mb-2">👤 <strong>Name:</strong> Mohamed</li>
-          <li class="mb-2">📧 <strong>Email:</strong> mohamed&#64;email.com</li>
-          <li class="mb-2">📞 <strong>Phone:</strong> +20 123 456 789</li>
-          <li class="mb-2">📍 <strong>City:</strong> Cairo, Egypt</li>
-        </ul>
-        <button class="btn btn-dark w-100 mt-3">Edit Profile</button>
-      </div>
-    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(product of productService.products(); track product.id){
+          <tr>
+            <td><img [src]="product.imgURL" style="width:50px; height:50px; object-fit:cover; border-radius:6px;"></td>
+            <td>{{product.name}}</td>
+            <td>{{product.price | currency:'USD'}}</td>
+            <td>{{product.quantity}}</td>
+            <td>
+              @if(product.quantity === 0){
+                <span class="badge bg-danger">Sold out</span>
+              }@else if(product.quantity <= 4){
+                <span class="badge bg-warning">Low stock</span>
+              }@else{
+                <span class="badge bg-success">In stock</span>
+              }
+            </td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="deleteProduct(product)">Delete</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
   </div>
 </div>

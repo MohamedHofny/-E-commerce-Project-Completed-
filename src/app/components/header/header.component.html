@@ -13,7 +13,14 @@
           <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart" routerLinkActive="active">🛒 Cart</a>
+          <a class="nav-link position-relative" routerLink="/cart" routerLinkActive="active">
+            🛒 Cart
+            @if(cartService.getCount() > 0){
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{cartService.getCount()}}
+              </span>
+            }
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
