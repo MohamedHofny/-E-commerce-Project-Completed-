@@ -1,0 +1,23 @@
+<div class="products-card">
+  @for(product of productService.products();track product.id){
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="product.imgURL" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text truncate"><span class="fw-bold">Description:</span> {{product.description}}</p>
+          <p class="card-text"><span class="fw-bold">Price:</span> {{product.price | currency:'USD'}}</p>
+          <p class="card-text"><span class="fw-bold">Quantity:</span> {{product.quantity}}</p>
+          @if(product.quantity==0){
+            <p class="text-danger">Sold out</p>
+          }@else if(product.quantity<=4) {
+            <p class="text-success">Only {{product.quantity}} left</p>
+          }@else {
+            <p class="text-warning">In stock</p>
+          }
+          <button [disabled]="product.quantity===0" class="btn btn-primary" (click)="handleBuy(product)">Buy</button>
+        </div>
+    </div>
+}@empty {
+    <p>No products</p>
+}
+</div>

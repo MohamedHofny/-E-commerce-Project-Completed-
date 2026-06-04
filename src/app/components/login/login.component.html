@@ -1,0 +1,26 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h2 class="fw-bold">Welcome Back!</h2>
+      <p style="color: #bdc3c7;">Login to your account</p>
+    </div>
+    <div class="login-body">
+      @if(errorMessage){
+        <div class="alert alert-danger">{{errorMessage}}</div>
+      }
+      <div class="mb-3">
+        <label class="form-label fw-bold">Email Address</label>
+        <input type="email" class="form-control" placeholder="Enter your email" [(ngModel)]="email">
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Password</label>
+        <input type="password" class="form-control" placeholder="Enter your password" [(ngModel)]="password">
+      </div>
+      <button class="btn btn-dark w-100 mb-3" (click)="handleLogin()">Login</button>
+      <p class="text-center text-muted">
+      Email: admin&#64;admin.com<br>
+        Password: 123456
+      </p>
+    </div>
+  </div>
+</div>
