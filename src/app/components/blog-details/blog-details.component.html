@@ -1,0 +1,29 @@
+<div class="blog-details-container">
+  @if(blog){
+    <div class="blog-hero" [style.backgroundImage]="'url(' + blog.imgURL + ')'">
+      <div class="blog-hero-overlay">
+        <span class="blog-tag">{{blog.category}}</span>
+        <h1 class="fw-bold mt-2">{{blog.title}}</h1>
+        <p>🗓️ {{blog.date}}</p>
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="blog-content-card">
+            <p class="lead">{{blog.description}}</p>
+            <hr>
+            <p>{{blog.content}}</p>
+            <a routerLink="/blog" class="btn btn-dark mt-3">← Back to Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="text-center py-5">
+      <h3>Blog post not found!</h3>
+      <a routerLink="/blog" class="btn btn-dark mt-3">← Back to Blog</a>
+    </div>
+  }
+</div>

@@ -5,94 +5,21 @@
 
 <div class="container py-5">
   <div class="row">
-    <div class="col-md-4 mb-4">
-      <div class="blog-card">
-        <img src="https://media.homecentre.com/i/homecentre/163650487-163650487-HC18082021_01-2100.jpg" alt="blog1">
-        <div class="blog-content">
-          <span class="blog-tag">Interior Design</span>
-          <h5 class="fw-bold mt-2">10 Tips for a Modern Living Room</h5>
-          <p class="text-muted">Discover how to transform your living room into a modern and stylish space with these simple tips.</p>
-          <div class="blog-footer">
-            <span>🗓️ Oct 2024</span>
-            <button class="btn btn-sm btn-dark">Read More</button>
+    @for(blog of blogs; track blog.id){
+      <div class="col-md-4 mb-4">
+        <div class="blog-card">
+          <img [src]="blog.imgURL" [alt]="blog.title">
+          <div class="blog-content">
+            <span class="blog-tag">{{blog.category}}</span>
+            <h5 class="fw-bold mt-2">{{blog.title}}</h5>
+            <p class="text-muted">{{blog.description}}</p>
+            <div class="blog-footer">
+              <span>🗓️ {{blog.date}}</span>
+              <a [routerLink]="['/blog', blog.id]" class="btn btn-sm btn-dark">Read More</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="blog-card">
-        <img src="https://media.homecentre.com/i/homecentre/163645951-163645951-HC07102021_01-2100.jpg" alt="blog2">
-        <div class="blog-content">
-          <span class="blog-tag">Furniture Care</span>
-          <h5 class="fw-bold mt-2">How to Care for Glass Furniture</h5>
-          <p class="text-muted">Learn the best practices for maintaining and cleaning your glass furniture to keep it looking new.</p>
-          <div class="blog-footer">
-            <span>🗓️ Sep 2024</span>
-            <button class="btn btn-sm btn-dark">Read More</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="blog-card">
-        <img src="https://media.homecentre.com/i/homecentre/160079085-160079085-HC020518_01-2100.jpg" alt="blog3">
-        <div class="blog-content">
-          <span class="blog-tag">Home Decor</span>
-          <h5 class="fw-bold mt-2">Best Color Combinations for Your Home</h5>
-          <p class="text-muted">Explore the best color combinations that will make your home look elegant and welcoming.</p>
-          <div class="blog-footer">
-            <span>🗓️ Aug 2024</span>
-            <button class="btn btn-sm btn-dark">Read More</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="blog-card">
-        <img src="https://media.homecentre.com/i/homecentre/161257427-161257427-HC280119_01-2100.jpg" alt="blog4">
-        <div class="blog-content">
-          <span class="blog-tag">Buying Guide</span>
-          <h5 class="fw-bold mt-2">How to Choose the Perfect Dining Chair</h5>
-          <p class="text-muted">A complete guide to help you choose the right dining chair for your home and lifestyle.</p>
-          <div class="blog-footer">
-            <span>🗓️ Jul 2024</span>
-            <button class="btn btn-sm btn-dark">Read More</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="blog-card">
-        <img src="https://media.homecentre.com/i/homecentre/161684469-161684469-HC210519_01-2100.jpg" alt="blog5">
-        <div class="blog-content">
-          <span class="blog-tag">Trends</span>
-          <h5 class="fw-bold mt-2">Top Furniture Trends for 2024</h5>
-          <p class="text-muted">Stay up to date with the latest furniture trends that are taking the interior design world by storm.</p>
-          <div class="blog-footer">
-            <span>🗓️ Jun 2024</span>
-            <button class="btn btn-sm btn-dark">Read More</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="blog-card">
-        <img src="https://media.homecentre.com/i/homecentre/163688823-163688823-HC05102021_01-2100.jpg" alt="blog6">
-        <div class="blog-content">
-          <span class="blog-tag">Tips</span>
-          <h5 class="fw-bold mt-2">Maximizing Space in Small Rooms</h5>
-          <p class="text-muted">Smart furniture choices and arrangement tips to make the most of your small living spaces.</p>
-          <div class="blog-footer">
-            <span>🗓️ May 2026</span>
-            <button class="btn btn-sm btn-dark">Read More</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    }
   </div>
 </div>

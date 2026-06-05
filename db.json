@@ -79,6 +79,16 @@
       "categoryID": 3,
       "matrial": "wood",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
+    },
+    {
+      "id": 9,
+      "name": "iPhone 15 Pro Max",
+      "price": 45000,
+      "quantity": 15,
+      "imgURL": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-hero?wid=832&hei=1000&fmt=jpeg",
+      "categoryID": 4,
+      "matrial": "Titanium",
+      "description": "Apple iPhone 15 Pro Max with A17 Pro chip, titanium design and advanced camera system."
     }
   ]
 }
