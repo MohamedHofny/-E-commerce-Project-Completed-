@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from '../models/iproduct';
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   private items: IProduct[] = [];
+
+  constructor(private productService: ProductService) {}
 
   addToCart(product: IProduct) {
     this.items.push(product);
@@ -17,6 +20,7 @@ export class CartService {
 
   removeFromCart(product: IProduct) {
     this.items = this.items.filter(item => item.id !== product.id);
+    this.productService.increaseQuantity(product.id);
   }
 
   getTotal(): number {

@@ -9,6 +9,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
@@ -17,9 +20,12 @@ export const routes: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'blog', component: BlogComponent },
     { path: 'blog/:id', component: BlogDetailsComponent },
+    { path: 'product/:id', component: ProductDetailsComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'cart', component: CartComponent },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
     { path: 'add-product', component: AddProductComponent, canActivate: [authGuard] },
+    { path: 'edit-product/:id', component: EditProductComponent, canActivate: [authGuard] },
+    { path: '**', component: NotFoundComponent },
 ]

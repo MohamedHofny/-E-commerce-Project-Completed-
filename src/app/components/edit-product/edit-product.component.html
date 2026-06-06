@@ -1,0 +1,49 @@
+<div class="add-product-hero">
+  <h1>Edit Product</h1>
+  <p>Update the product details</p>
+</div>
+
+<div class="container py-5">
+  <div class="add-product-card">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label fw-bold">Product Name</label>
+        <input type="text" class="form-control" placeholder="Enter product name" [(ngModel)]="product.name">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label fw-bold">Price</label>
+        <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="product.price">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label fw-bold">Quantity</label>
+        <input type="number" class="form-control" placeholder="Enter quantity" [(ngModel)]="product.quantity">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label fw-bold">Category</label>
+        <select class="form-control" [(ngModel)]="product.categoryID">
+          <option [value]="1">Dining Tables</option>
+          <option [value]="2">Chairs</option>
+          <option [value]="3">TV Units</option>
+          <option [value]="4">Sofas</option>
+          <option [value]="5">Beds</option>
+        </select>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label fw-bold">Material</label>
+        <input type="text" class="form-control" placeholder="Enter material" [(ngModel)]="product.matrial">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label fw-bold">Image URL</label>
+        <input type="text" class="form-control" placeholder="Enter image URL" [(ngModel)]="product.imgURL">
+      </div>
+      <div class="col-12 mb-3">
+        <label class="form-label fw-bold">Description</label>
+        <textarea class="form-control" rows="4" placeholder="Enter product description" [(ngModel)]="product.description"></textarea>
+      </div>
+      <div class="col-12 d-flex gap-2">
+        <button class="btn btn-dark px-5" (click)="handleEdit()">Save Changes</button>
+        <a routerLink="/dashboard" class="btn btn-outline-dark px-4">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>

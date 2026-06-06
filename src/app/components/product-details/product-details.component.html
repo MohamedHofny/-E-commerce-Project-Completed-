@@ -1,0 +1,40 @@
+<div class="product-details-container">
+  @if(product){
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <img [src]="product.imgURL" [alt]="product.name" class="product-img">
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="product-info">
+            <h2 class="fw-bold">{{product.name}}</h2>
+            <h3 class="text-success fw-bold">{{product.price | currency:'USD'}}</h3>
+            <hr>
+            <p class="text-muted">{{product.description}}</p>
+            <hr>
+            <p><span class="fw-bold">Material:</span> {{product.matrial}}</p>
+            <p><span class="fw-bold">Quantity Available:</span> {{product.quantity}}</p>
+            @if(product.quantity === 0){
+              <p class="text-danger fw-bold">Sold Out</p>
+            } @else if(product.quantity <= 4){
+              <p class="text-warning fw-bold">Only {{product.quantity}} left!</p>
+            } @else {
+              <p class="text-success fw-bold">In Stock ✅</p>
+            }
+            <div class="d-flex gap-2 mt-3">
+              <button [disabled]="product.quantity===0" class="btn btn-dark px-5" (click)="handleBuy()">
+                🛒 Add to Cart
+              </button>
+              <a routerLink="/" class="btn btn-outline-dark px-4">← Back</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="text-center py-5">
+      <h3>Product not found!</h3>
+      <a routerLink="/" class="btn btn-dark mt-3">← Back to Home</a>
+    </div>
+  }
+</div>

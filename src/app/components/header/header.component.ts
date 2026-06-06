@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -10,5 +10,14 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  constructor(public cartService: CartService) {}
+  constructor(public cartService: CartService, private router: Router) {}
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem('isLoggedIn') === 'true';
+  }
+
+  handleLogout() {
+    localStorage.removeItem('isLoggedIn');
+    this.router.navigate(['/login']);
+  }
 }

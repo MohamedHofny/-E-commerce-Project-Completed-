@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Odense 8-Seater Top Dining Table",
       "price": 2150000,
       "quantity": 23,
@@ -11,7 +11,7 @@
       "description": "Lorem ipsum dolor sit, amet consectetur ullam quo."
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Trixia 4-Seater Glass Dining Table",
       "price": 31240000,
       "quantity": 8,
@@ -21,7 +21,7 @@
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Gasha Marble Top Side Table",
       "price": 1154000,
       "quantity": 10,
@@ -31,7 +31,7 @@
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Ventura Fabric Dining Chair",
       "price": 12346500,
       "quantity": 2,
@@ -41,7 +41,7 @@
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Boston Study Chair",
       "price": 11000,
       "quantity": 10,
@@ -51,7 +51,7 @@
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Coby Extendable TV Unit",
       "price": 112000,
       "quantity": 0,
@@ -61,7 +61,7 @@
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Accent TV Unit",
       "price": 136999,
       "quantity": 4,
@@ -71,7 +71,7 @@
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Plymouth TV Unit",
       "price": 136999,
       "quantity": 1,
@@ -81,7 +81,7 @@
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "iPhone 15 Pro Max",
       "price": 45000,
       "quantity": 15,
@@ -90,5 +90,6 @@
       "matrial": "Titanium",
       "description": "Apple iPhone 15 Pro Max with A17 Pro chip, titanium design and advanced camera system."
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

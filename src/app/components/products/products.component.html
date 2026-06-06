@@ -1,17 +1,30 @@
-<div class="search-bar container mt-4">
-  <input 
-    type="text" 
-    class="form-control form-control-lg" 
-    placeholder="🔍 Search for furniture..." 
-    [(ngModel)]="searchText">
+<div class="container mt-4">
+  <div class="row mb-3">
+    <div class="col-md-8">
+      <input
+        type="text"
+        class="form-control form-control-lg"
+        placeholder="🔍 Search for furniture..."
+        [(ngModel)]="searchText">
+    </div>
+    <div class="col-md-4">
+      <select class="form-control form-control-lg" [(ngModel)]="selectedCategory">
+        @for(category of categories; track category.id){
+          <option [value]="category.id">{{category.name}}</option>
+        }
+      </select>
+    </div>
+  </div>
 </div>
 
 <div class="products-card">
-    @for(product of getFilteredProducts();track product.id){
+    @for(product of getPaginatedProducts();track product.id){
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" [src]="product.imgURL" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
+          <h5 class="card-title">
+            <a [routerLink]="['/product', product.id]" class="text-dark text-decoration-none">{{product.name}}</a>
+          </h5>
           <p class="card-text truncate"><span class="fw-bold">Description:</span> {{product.description}}</p>
           <p class="card-text"><span class="fw-bold">Price:</span> {{product.price | currency:'USD'}}</p>
           <p class="card-text"><span class="fw-bold">Quantity:</span> {{product.quantity}}</p>
@@ -28,4 +41,22 @@
 }@empty {
     <p class="text-center mt-4">No products found!</p>
 }
+</div>
+
+<div class="container mt-3 mb-4">
+  <nav>
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="changePage(currentPage - 1)">Previous</button>
+      </li>
+      @for(page of getTotalPages(); track page){
+        <li class="page-item" [class.active]="currentPage === page">
+          <button class="page-link" (click)="changePage(page)">{{page}}</button>
+        </li>
+      }
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages().length">
+        <button class="page-link" (click)="changePage(currentPage + 1)">Next</button>
+      </li>
+    </ul>
+  </nav>
 </div>

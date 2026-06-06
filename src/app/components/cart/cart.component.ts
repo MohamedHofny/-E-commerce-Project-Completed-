@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../services/cart.service';
+import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../models/iproduct';
 import { CurrencyPipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, RouterModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -14,7 +16,10 @@ export class CartComponent {
   products: IProduct[] = [];
   orderSuccess: boolean = false;
 
-  constructor(private cartService: CartService) {
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService
+  ) {
     this.products = this.cartService.getItems();
   }
 
