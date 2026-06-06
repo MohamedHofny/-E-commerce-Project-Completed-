@@ -1,4 +1,4 @@
- # 🛋️ Furniture Fixture - E-Commerce Project
+# 🛋️ Furniture Fixture - E-Commerce Project
 
 ![Angular](https://img.shields.io/badge/Angular-17-red?style=for-the-badge&logo=angular)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?style=for-the-badge&logo=bootstrap)
@@ -12,15 +12,24 @@
 
 ## 🚀 Features
 
-- 🏠 **Home Page** - Browse all available furniture products
+- 🏠 **Home Page** - Browse all available furniture products with search and filter
 - 🛒 **Shopping Cart** - Add/remove products with total price calculation
 - ➕ **Add Product** - Admin can add new products dynamically
-- 📊 **Dashboard** - Overview of orders and account info
+- ✏️ **Edit Product** - Admin can edit existing products
+- 🗑️ **Delete Product** - Admin can delete products
+- 📊 **Dashboard** - Overview of products, orders and account info
 - 👤 **Profile** - User profile management
-- 📝 **Blog** - Furniture tips and trends
+- 📝 **Blog** - Furniture tips and trends with details page
 - 📞 **Contact** - Contact form with info
 - ℹ️ **About** - Company information
-- 🔐 **Login** - User authentication
+- 🔐 **Login/Register** - User authentication with LocalStorage
+- 🔍 **Search** - Search products by name
+- 🏷️ **Filter** - Filter products by category
+- 📄 **Pagination** - Products split into pages
+- 🛡️ **Auth Guard** - Protected routes for admin pages
+- 🔢 **Cart Counter** - Live cart item counter in navbar
+- 📦 **Product Details** - Detailed page for each product
+- 404 **Not Found Page** - Custom 404 page
 
 ---
 
@@ -35,6 +44,8 @@
 | LocalStorage | Data Persistence |
 | Angular Signals | State Management |
 | Angular Router | Navigation |
+| Angular Guards | Route Protection |
+| Angular Forms | Form Handling |
 
 ---
 
@@ -56,41 +67,39 @@ ng serve -o
 
 ---
 
-## 📸 Screenshots
-
-### Home Page
-> Browse all furniture products with prices and stock status
-
-### Shopping Cart
-> Add products and view total price
-
-### Add Product
-> Admin panel to add new products
-
----
-
 ## 📁 Project Structure
----
+
+
 src/
 ├── app/
 │   ├── components/
 │   │   ├── header/
 │   │   ├── footer/
 │   │   ├── products/
+│   │   ├── product-details/
 │   │   ├── cart/
 │   │   ├── dashboard/
 │   │   ├── profile/
 │   │   ├── about/
 │   │   ├── contact/
 │   │   ├── blog/
+│   │   ├── blog-details/
 │   │   ├── login/
-│   │   └── add-product/
+│   │   ├── add-product/
+│   │   ├── edit-product/
+│   │   └── not-found/
 │   ├── services/
 │   │   ├── cart.service.ts
 │   │   └── product.service.ts
+│   ├── guards/
+│   │   └── auth.guard.ts
 │   └── models/
 │       └── iproduct.ts
 └── assets/
+
+
+---
+
 ## 👨‍💻 Developer
 
 **Mohamed Hofny**
