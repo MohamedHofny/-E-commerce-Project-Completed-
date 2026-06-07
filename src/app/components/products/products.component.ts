@@ -18,7 +18,7 @@ export class ProductsComponent {
   searchText: string = '';
   selectedCategory: number = 0;
   currentPage: number = 1;
-  itemsPerPage: number = 4;
+  itemsPerPage: number = 8;
 
   categories = [
     { id: 0, name: 'All' },
@@ -57,8 +57,12 @@ export class ProductsComponent {
   }
 
   handleBuy(product: IProduct) {
-  this.cartService.addToCart(product);
-  this.productService.decreaseQuantity(product.id);
-  this.router.navigate(['/cart']);
-}
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+      this.cartService.addToCart(product);
+      this.productService.decreaseQuantity(product.id);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
 }

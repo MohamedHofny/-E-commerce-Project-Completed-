@@ -25,7 +25,7 @@ export class CartComponent {
 
   removeItem(product: IProduct) {
     this.cartService.removeFromCart(product);
-    this.products = this.cartService.getItems();
+    this.products = [...this.cartService.getItems()];
   }
 
   getTotal(): number {
@@ -33,6 +33,9 @@ export class CartComponent {
   }
 
   handleCheckout() {
+    this.products.forEach(product => {
+      this.productService.increaseQuantity(product.id);
+    });
     this.cartService.clearCart();
     this.products = [];
     this.orderSuccess = true;
